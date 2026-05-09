@@ -37,8 +37,6 @@ Or using venv:
 
 ## Installation
 
-### Installing from Source
-
   1. **Clone the Repository**
 
       ```bash
@@ -71,16 +69,16 @@ ensure you have the dataset in /dataset and already make directory in /results/<
 ## Output
 
 The tool generates several files to aid in analysis:
-=== EVENT RECONSTRUCTION PROCESS ===
-  Output 1: Normalization
-  Output 2: Log Decoder
-  Output 3: Low Level Predict
-  Output 4: High Level Predict
+### Event Reconstruction Process
+1. Normalization
+2. Log Decoder
+3. Low Level Predict
+4. High Level Predict
 
-=== EVALUATION PROCESS ===
-  Eval Output 1: Low Level Ground Truth
-  Eval Output 2: Low Level Evaluation
-  Eval Output 3: High Level Ground Truth
-  Eval Output 4: High Level Evaluation
+### Evaluation Process
+1. Low Level Ground Truth
+2. Low Level Evaluation
+3. High Level Ground Truth
+4. High Level Evaluation
 
 all output will be stored in /result/<dataset_name>
