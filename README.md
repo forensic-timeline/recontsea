@@ -54,15 +54,15 @@ Or using venv:
 
 To ensure that the installation is correct and the code is functioning as expected, you can run by:
 
-    ```bash
-    python main.py <dataset_name>
-    ```
+```bash
+python main.py 
+```
 
 example:
 
-    ```bash
-    python main.py 1sample
-    ```
+```bash
+python main.py 1sample
+```
 
 ensure you have the dataset in /dataset and already make directory in /results/<dataset_name>
 
