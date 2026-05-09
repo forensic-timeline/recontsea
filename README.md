@@ -34,3 +34,53 @@ Or using venv:
       python -m venv venv
       source venv/bin/activate
       ```
+
+## Installation
+
+### Installing from Source
+
+  1. **Clone the Repository**
+
+      ```bash
+      git clone https://github.com/forensic-timeline/recontsea
+      ```
+
+  2. **Install Depedencies**
+
+      ```bash
+      cd recontsea
+      pip install -r requirements.txt
+      ```
+
+## How to Run
+
+To ensure that the installation is correct and the code is functioning as expected, you can run by:
+
+    ```bash
+    python main.py <dataset_name>
+    ```
+
+example:
+
+    ```bash
+    python main.py 1sample
+    ```
+
+ensure you have the dataset in /dataset and already make directory in /results/<dataset_name>
+
+## Output
+
+The tool generates several files to aid in analysis:
+=== EVENT RECONSTRUCTION PROCESS ===
+  Output 1: Normalization
+  Output 2: Log Decoder
+  Output 3: Low Level Predict
+  Output 4: High Level Predict
+
+=== EVALUATION PROCESS ===
+  Eval Output 1: Low Level Ground Truth
+  Eval Output 2: Low Level Evaluation
+  Eval Output 3: High Level Ground Truth
+  Eval Output 4: High Level Evaluation
+
+all output will be stored in /result/<dataset_name>
