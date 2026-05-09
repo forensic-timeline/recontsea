@@ -1,0 +1,25 @@
+title: Bash Execution Commands in HTTP Request
+id: 4f6c739d-2b6a-4b7c-9d95-0f9d558fa490
+status: test
+description: Detects decoded payloads in HTTP requests containing bash or sh command execution patterns, commonly associated with privilege escalation or webshell post-exploitation.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - privilege-escalation
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"bash'
+    - '"sh'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: critical

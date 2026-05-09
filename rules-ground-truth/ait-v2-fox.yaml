@@ -1,0 +1,222 @@
+# Labelling Rules untuk Ground Truth Dataset
+# Format:
+#   - filter: list of patterns (AND condition - semua pattern harus match)
+#   - Pattern matching bersifat case-insensitive
+
+# adapted from AIT V2 Fox Labelling Rules
+
+# Web Scan
+- id: wpscan
+  ground_truth_label: wpscan
+  sensitivity: moderate
+  filter:
+    - wpscan
+
+# Dirb Scan
+- id: dirb_scan
+  ground_truth_label: dirb_scan
+  sensitivity: moderate
+  filter:
+    - "code: 404"
+    - "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
+
+# Upload Shell
+- id: upload_rce_shell_1
+  ground_truth_label: upload_rce_shell
+  sensitivity: moderate
+  filter:
+    - "GET / "
+    - python
+
+# Upload Shell
+- id: upload_rce_shell_2
+  ground_truth_label: upload_rce_shell
+  sensitivity: moderate
+  filter:
+    - "?p=5"
+    - GET
+    - python
+
+# Upload Shell
+- id: upload_rce_shell_3
+  ground_truth_label: upload_rce_shell
+  sensitivity: moderate
+  filter:
+    - wp-admin/admin-ajax
+    - POST
+    - python
+
+# check_user_id via Webshell
+# id
+- id: check_user_id
+  ground_truth_label: check_user_id
+  sensitivity: moderate
+  filter:
+    - 'wp_meta=WyJpZCJd'
+    
+# check_netstat_t via Webshell
+# netstat -t
+- id: check_netstat_t
+  ground_truth_label: check_netstat_t
+  sensitivity: moderate
+  filter:
+    - 'wp_meta=WyJuZXRzdGF0IiwgIi10Il0%3D'
+
+# read_resolv via Webshell
+# cat /etc/resolv.conf
+- id: read_resolv
+  ground_truth_label: read_resolv
+  sensitivity: moderate
+  filter:
+    - 'wp_meta=WyJjYXQiLCAiL2V0Yy9yZXNvbHYuY29uZiJd'
+
+# check_ps_a via Webshell
+# ip addr
+- id: check_network_config
+  ground_truth_label: check_network_config
+  sensitivity: moderate
+  filter:
+    - 'wp_meta=WyJpcCIsICJhZGRyIl0%3D'
+
+# Process Command via Webshell
+# ps -A
+- id: check_ps_a
+  ground_truth_label: check_ps_a
+  sensitivity: moderate
+  filter:
+    - 'wp_meta=WyJwcyIsICItQSJd'
+
+# check_release via Webshell
+# lsb_release -a
+- id: check_release
+  ground_truth_label: check_release
+  sensitivity: moderate
+  filter:
+    - 'wp_meta=WyJsc2JfcmVsZWFzZSIsICItYSJd'
+
+# read_group via Webshell
+# cat /etc/group
+- id: read_group
+  ground_truth_label: read_group
+  sensitivity: moderate
+  filter:
+    - 'wp_meta=WyJjYXQiLCAiL2V0Yy9ncm91cCJd'
+
+# read_passwd via Webshell
+# cat /etc/passwd
+- id: read_passwd
+  ground_truth_label: read_passwd
+  sensitivity: moderate
+  filter:
+    - 'wp_meta=WyJjYXQiLCAiL2V0Yy9wYXNzd2QiXQ%3D%3D'
+
+# check_date via Webshell
+# date
+- id: check_date
+  ground_truth_label: check_date
+  sensitivity: moderate
+  filter:
+    - 'wp_meta=WyJkYXRlIl0%3D'
+
+# list_web_dir via Webshell
+# ls -laR /var/www
+- id: list_web_dir
+  ground_truth_label: list_web_dir
+  sensitivity: moderate
+  filter:
+    - 'wp_meta=WyJscyIsICItbGFSIiwgIi92YXIvd3d3Il0%3D'
+
+# check_wp_config via Webshell
+# cat /var/www/intranet.price.fox.org/wp-config.php
+- id: check_wp_config
+  ground_truth_label: check_wp_config
+  sensitivity: moderate
+  filter:
+    - 'wp_meta=WyJjYXQiLCAiL3Zhci93d3cvaW50cmFuZXQucHJpY2UuZm94Lm9yZy93cC1jb25maWcucGhwIl0%3D'
+
+# dump_wp_users via Webshell
+# mysql -u wordpress -ptainoox3aedeeSh wordpress_db -e "select * from wp_users"
+- id: dump_wp_users
+  ground_truth_label: dump_wp_users
+  sensitivity: moderate
+  filter:
+    - 'wp_meta=WyJteXNxbCIsICItdSIsICJ3b3JkcHJlc3MiLCAiLXB0YWlub294M2FlZGVlU2giLCAid29yZHByZXNzX2RiIiwgIi1lIiwgIlwic2VsZWN0ICogZnJvbSB3cF91c2Vyc1wiIl0%3D'
+
+# read_profile via Webshell
+# cat /etc/profile
+- id: read_profile
+  ground_truth_label: read_profile
+  sensitivity: moderate
+  filter:
+    - 'wp_meta=WyJjYXQiLCAiL2V0Yy9wcm9maWxlIl0%3D'
+
+# Decide Crack Pass Methods
+- id: decide_crack_method_1
+  ground_truth_label: decide_crack_method
+  sensitivity: moderate
+  filter:
+    - 'WyJ3Z2V0IiwgImh0dHBzOi8vZ2l0aHViLmNvbS9haXQtYWVjaWQvd3BoYXNoY3JhY2svYXJjaGl2ZS9yZWZzL3RhZ3MvdjAuMS50YXIuZ3oiXQ'
+
+- id: decide_crack_method_2
+  ground_truth_label: decide_crack_method
+  sensitivity: moderate
+  filter:
+    - 'WyJ0YXIiLCAieHZmeiIsICJ2MC4xLnRhci5neiJd'
+
+- id: decide_crack_method_3
+  ground_truth_label: decide_crack_method
+  sensitivity: moderate
+  filter:
+    - 'WyJ3Z2V0I'
+
+# Crack Password via Webshell
+- id: crack_wphash
+  ground_truth_label: crack_wphash
+  sensitivity: moderate
+  filter:
+    - 'WyIuL3dwaGFzaGNyYWNrLTAuMS93cGhhc2hjcmFjay5zaCIsICItdyIsICIkUFdEL3JvY2t5b3UudHh0IiwgIi1qIiwgIi4vd3BoYXNoY3JhY2stMC4xL2pvaG4tMS43LjYtanVtYm8tMTItTGludXg2NC9ydW4iLCAiLXUi'
+
+# Bash / Reverse Shell via Webshell
+- id: open_reverse_shell
+  ground_truth_label: open_reverse_shell
+  sensitivity: moderate
+  filter:
+    - 'WyJiYXNoIiwgIi1jIiwgIiAnMDwmMTk2O2V4ZWMgMTk2PD4vZGV2L3RjcC8xOTIuMTY4LjEzMC43Ny81MTg5ODsgc2ggPCYxOTYgPiYxOTYgMj4mMTk2JyIsICImIl0%3D'
+
+# User Login Activity in Server
+- id: login_user
+  ground_truth_label: login_user
+  sensitivity: moderate
+  filter:
+    - systemd-logind
+    - new session
+    - phopkins
+
+# Sudo Check from Web Directory
+- id: check_sudo
+  ground_truth_label: check_sudo
+  sensitivity: moderate
+  filter:
+    - "[sudo]"
+    - var/www
+    - COMMAND=list
+
+# Sudo List Root from Web Directory
+- id: list_root
+  ground_truth_label: list_root
+  sensitivity: moderate
+  filter:
+    - "[sudo]"
+    - var/www
+    - COMMAND=/bin/ls
+    - /root
+
+# Sudo Read Shadow from Web Directory
+- id: read_shadow
+  ground_truth_label: read_shadow
+  sensitivity: moderate
+  filter:
+    - "[sudo]"
+    - var/www
+    - COMMAND=/bin/cat
+    - /shadow

@@ -1,0 +1,27 @@
+title: Network Commands in HTTP Request
+id: 7cfe4fb2-41a1-4a12-8f87-1f3cb1f3f0fc
+status: test
+description: Detects decoded payloads in HTTP requests containing network command keywords, commonly associated with webshell reconnaissance and exploitation behavior.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"netstat'
+    - '"ip'
+    - '"ifconfig'
+    - 'ipconfig'
+    - '"ss'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: high

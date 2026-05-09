@@ -1,0 +1,215 @@
+# Labelling Rules untuk Ground Truth Dataset
+# Format:
+#   - filter: list of patterns (AND condition - semua pattern harus match)
+#   - Pattern matching bersifat case-insensitive
+
+# Organization Y Labelling Rules, adapted from SEC Paper
+
+- id: dir_scan
+  ground_truth_label: dir_scan
+  sensitivity: moderate
+  filter:
+    - " python"
+
+- id: dir_scan
+  ground_truth_label: dir_scan
+  sensitivity: moderate
+  filter:
+    - "ShellBot"
+
+- id: dir_scan
+  ground_truth_label: dir_scan
+  sensitivity: moderate
+  filter:
+    - "curl/8.5.0"
+    
+- id: bruteforce_login_server_attempt
+  ground_truth_label: bruteforce_login_server_attempt
+  sensitivity: moderate
+  filter:
+    - "authentication failure"
+
+- id: bruteforce_login_server_attempt
+  ground_truth_label: bruteforce_login_server_attempt
+  sensitivity: moderate
+  filter:
+    - "Failed password for"
+
+- id: bruteforce_login_server_attempt
+  ground_truth_label: bruteforce_login_server_attempt
+  sensitivity: moderate
+  filter:
+    - "invalid user"
+
+- id: bruteforce_login_success
+  ground_truth_label: bruteforce_login_success
+  sensitivity: moderate
+  filter:
+    - "Accepted password for"
+    - "27.116.61.59"
+
+- id: bruteforce_login_web
+  ground_truth_label: bruteforce_login_web
+  sensitivity: strict
+  filter:
+    - "%Mozilla/5.0"
+    - "%/wp-login.php%"
+    - "%POST%"
+    - "%200%"
+
+- id: ssh_login_success
+  ground_truth_label: ssh_login_success
+  sensitivity: moderate
+  filter:
+    - "Accepted publickey"
+    - "27.116.61.59"
+
+- id: password_change
+  ground_truth_label: password_change
+  sensitivity: moderate
+  filter:
+    - "passwd"
+    - "password changed"
+
+- id: cyberpanel_login_attempt
+  ground_truth_label: cyberpanel_login_attempt
+  sensitivity: moderate
+  filter:
+    - "verifyLogin"
+
+- id: cyberpanel_login_success
+  ground_truth_label: cyberpanel_login_success
+  sensitivity: moderate
+  filter:
+    - "websiteFunctions"
+
+- id: file_inclusion
+  ground_truth_label: file_inclusion
+  sensitivity: moderate
+  filter:
+    - "=http://"
+
+- id: file_inclusion
+  ground_truth_label: file_inclusion
+  sensitivity: moderate
+  filter:
+    - "=https://"
+
+- id: add_vhost_1
+  ground_truth_label: add_vhost_1
+  sensitivity: moderate
+  filter:
+    - "createVirtualHost"
+    - "pragmaslot"
+
+- id: make_directory_1
+  ground_truth_label: make_directory_1
+  sensitivity: moderate
+  filter:
+    - "mkdir"
+    - "pragmaslot"
+
+- id: change_permissions_1
+  ground_truth_label: change_permissions_1
+  sensitivity: moderate
+  filter:
+    - "chmod"
+    - "pragmaslot"
+
+- id: change_ownership_1
+  ground_truth_label: change_ownership_1
+  sensitivity: moderate
+  filter:
+    - "chown"
+    - "pragmaslot"
+
+- id: make_files_1
+  ground_truth_label: make_files_1
+  sensitivity: moderate
+  filter:
+    - "pragm1413"
+    - "index.html"
+
+- id: delete_vhost_1
+  ground_truth_label: delete_vhost_1
+  sensitivity: moderate
+  filter:
+    - "deleteVirtualHostConfigurations"
+    - "pragmaslot"
+
+- id: add_vhost_2
+  ground_truth_label: add_vhost_2
+  sensitivity: moderate
+  filter:
+    - "createVirtualHost"
+    - "mawartoto"
+
+- id: make_directory_2
+  ground_truth_label: make_directory_2
+  sensitivity: moderate
+  filter:
+    - "mkdir"
+    - "mawartoto"
+
+- id: change_permissions_2
+  ground_truth_label: change_permissions_2
+  sensitivity: moderate
+  filter:
+    - "chmod"
+    - "mawartoto"
+
+- id: change_ownership_2
+  ground_truth_label: change_ownership_2
+  sensitivity: moderate
+  filter:
+    - "chown"
+    - "mawartoto"
+
+- id: make_files_2
+  ground_truth_label: make_files_2
+  sensitivity: moderate
+  filter:
+    - "mawar8514"
+    - "index.html"
+
+- id: delete_vhost_2
+  ground_truth_label: delete_vhost_2
+  sensitivity: moderate
+  filter:
+    - "deleteVirtualHostConfigurations"
+    - "mawartoto"
+
+- id: read_file
+  ground_truth_label: read_file
+  sensitivity: moderate
+  filter:
+    - "[sudo]"
+    - /tmp/lscpd
+    - COMMAND=/usr/bin/cat
+    - /cyberpanel
+
+- id: list_file
+  ground_truth_label: list_file
+  sensitivity: moderate
+  filter:
+    - "[sudo]"
+    - /tmp/lscpd
+    - COMMAND=/usr/bin/ls
+    - /usr/local/lsws
+
+- id: restart_service
+  ground_truth_label: restart_service
+  sensitivity: moderate
+  filter:
+    - "[sudo]"
+    - /tmp/lscpd
+    - "COMMAND=/usr/bin/systemctl restart"
+
+- id: read_file
+  ground_truth_label: read_file
+  sensitivity: moderate
+  filter:
+    - "[sudo]"
+    - /tmp/lscpd
+    - COMMAND=/usr/bin/chown
+    - /cyberpanel

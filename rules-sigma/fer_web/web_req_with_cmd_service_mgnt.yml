@@ -1,0 +1,27 @@
+title: Service Management Commands in HTTP Request
+id: 4c5a52e2-7f19-4c72-8d6e-c1c2a64c5573
+status: test
+description: Detects decoded payloads in HTTP requests containing service management command keywords such as systemctl or service, typically associated with privilege escalation or webshell post-exploitation.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - privilege-escalation
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"systemctl'
+    - '"service'
+    - '"init.d'
+    - '"rc.d'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: high

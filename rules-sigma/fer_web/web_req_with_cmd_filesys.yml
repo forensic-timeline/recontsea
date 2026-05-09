@@ -1,0 +1,32 @@
+title: Filesystem Commands in HTTP Request
+id: e4a2c6b2-3c22-4d4f-9f55-0db97cfc1ce9
+status: test
+description: Detects decoded payloads in HTTP requests containing filesystem or miscellaneous command keywords typically used in webshell post-exploitation.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"ls'
+    - '"find'
+    - '"chmod'
+    - '"chown'
+    - '"rm'
+    - '"mv'
+    - '"echo'
+    - '"base64'
+    - '"pwd'
+    - '"cd"'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: high

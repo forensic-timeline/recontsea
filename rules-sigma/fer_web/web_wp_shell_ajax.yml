@@ -1,0 +1,35 @@
+title: Direct Invocation of AJAX Endpoint (Shell)
+id: 3e7df0a1-58d8-4d15-ac322-6a9a9b98dffe
+status: test
+description: Detects direct access to AJAX endpoint (services/ajax.php) which is normally triggered only via client-side JavaScript. Direct  invocation indicates scripted or webshell-driven interaction.
+author: Yasir Utomo
+tags:
+  - attack.webshell
+  - attack.initial_access
+  - attack.persistence
+references:
+  - https://zenodo.org/records/4264796
+logsource:
+  category: webserver
+detection:
+  selection:
+    c-uri|contains:
+      - '/services/ajax.php'
+      - '/services/portal/'
+    cs-user-agent|contains:
+        - 'python'
+        - 'perl'
+        - 'postman'
+        - 'curl'
+        - 'wget'
+        - 'go-http-client'
+        - 'java'
+        - 'shell'
+        - 'httpclient'
+    sc-status:
+        - 200
+  condition: selection
+falsepositives:
+  - Automated internal monitoring tools (rare)
+  - Custom integrations calling Horde backend APIs
+level: high

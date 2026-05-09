@@ -1,0 +1,34 @@
+title: Sudo File System Command Executed from Web Directory
+id: 67e1c3c9-8f4b-4af7-9c4d-6fd3fdc5f7a4
+status: test
+description: Detects sudo file system command execution originating from /var/www (apache/nginx) or tmp/lscpd (openlite/cyberpanel), which may indicate privilege escalation from a compromised web process.
+author: Converted based on sample event
+tags:
+  - sudo
+  - privilege-escalation
+  - webshell
+  - keyword-detection
+
+logsource:
+  category: sshd
+  product: linux
+
+detection:
+  selection_base:
+    CommandLine|contains:
+      - 'var/www'
+      - 'tmp/lscpd'
+  selection_command:
+    CommandLine|contains:
+      - 'find'
+      - 'chmod'
+      - 'chown'
+      - 'mv'
+      - 'base64'
+      - 'bin/pwd'
+  condition: selection_base and selection_command
+
+falsepositives:
+  - Legitimate maintenance or deployment script activity
+  - Admin debugging or upgrade operations
+level: critical

@@ -1,0 +1,28 @@
+title: File Read Commands in HTTP Request
+id: 2c5b3af6-9a77-4ea4-8c61-2d9e8b8f0b22
+status: test
+description: Detects decoded payloads in HTTP requests containing file read command keywords commonly used in webshell exploitation attempts.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"cat'
+    - '"head'
+    - '"tail'
+    - '"less'
+    - '"more'
+    - '"strings'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: high

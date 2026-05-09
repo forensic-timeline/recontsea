@@ -1,0 +1,26 @@
+title: Container Management Commands in HTTP Request
+id: 2bb0d9bc-3fa9-4f28-9d87-9b42db43ff97
+status: test
+description: Detects decoded payloads in HTTP requests containing container or orchestration command keywords such as docker, kubectl, or helm, typically observed in advanced webshell post-exploitation activity.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - privilege-escalation
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"docker'
+    - '"kubectl'
+    - '"helm'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: high

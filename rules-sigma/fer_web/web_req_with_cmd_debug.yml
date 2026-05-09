@@ -1,0 +1,25 @@
+title: Debugging Commands in HTTP Request
+id: f87dc0ef-4a3d-4f41-9a68-fb58a52bbd3f
+status: test
+description: Detects decoded payloads in HTTP requests containing debugging tool keywords such as gdb, strace, or ltrace, often indicating advanced webshell post-exploitation activity.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"gdb'
+    - '"strace'
+    - '"ltrace'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: high

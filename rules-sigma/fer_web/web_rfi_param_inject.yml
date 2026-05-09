@@ -1,0 +1,24 @@
+title: Remote File Inclusion - Parameter Injection
+id: 7c2ba8a9-1e2c-4fd2-9b61-6c4c1b87582e
+status: test
+description: Detects possible RFI attempts where a request parameter contains a remote URL starting with http or https followed by query markers.
+author: Converted based on sample event
+tags:
+  - exploit
+  - injection
+  - rfi
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '=http://'
+    - '=https://'
+    - '??'
+  condition: keywords
+
+falsepositives:
+  - Search engine bots
+  - Tracking or analytics query parameters
+level: medium

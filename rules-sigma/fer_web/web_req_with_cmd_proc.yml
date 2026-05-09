@@ -1,0 +1,26 @@
+title: Process Commands in HTTP Request
+id: d0cb1e46-f3b4-4c02-9b74-6b48fd8c6341
+status: test
+description: Detects decoded payloads in HTTP requests containing process or session-related command keywords, commonly associated with webshell post-exploitation activity.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"ps'
+    - '"top'
+    - '"tmux'
+    - '"screen'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: high

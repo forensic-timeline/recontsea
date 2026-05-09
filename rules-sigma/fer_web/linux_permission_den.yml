@@ -1,0 +1,24 @@
+title: Systemd Permission Denied Event
+id: 5d7bfd61-2a24-4f60-a72c-7a2b91b6cd91
+status: test
+description: Detects log entries that contain both 'systemd' and 'Permission denied', which may indicate privilege escalation failure or unauthorized action attempts.
+author: Converted based on sample event
+tags:
+  - systemd
+  - privilege-escalation
+  - permission-denied
+  - keyword-detection
+
+logsource:
+  category: sshd
+  product: linux
+
+detection:
+  keywords:
+    - 'Permission denied'
+  condition: keywords
+
+falsepositives:
+  - Normal service startup failures
+  - Expected hardening rejections
+level: medium

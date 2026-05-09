@@ -1,0 +1,32 @@
+title: File Resource Commands in HTTP Request
+id: c88a3df1-54b9-44d3-b8e9-674e1eb036b5
+status: test
+description: Detects decoded payloads in HTTP requests containing file resource command keywords commonly used in webshell-driven file retrieval.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"wget'
+    - '"curl'
+    - '"fetch'
+    - '"tar'
+    - '"zip'
+    - '"unzip'
+    - '"7z'
+    - '"rar'
+    - '"mkdir'
+    - '"touch'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: high

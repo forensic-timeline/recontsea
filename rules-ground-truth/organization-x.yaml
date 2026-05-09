@@ -1,0 +1,259 @@
+# Labelling Rules untuk Ground Truth Dataset
+# Format:
+#   - filter: list of patterns (AND condition - semua pattern harus match)
+#   - Pattern matching bersifat case-insensitive
+
+# Organization X Labelling Rules, adapted from SEC Paper
+
+- id: dir_scan
+  ground_truth_label: dir_scan
+  sensitivity: moderate
+  filter:
+    - "code: 404"
+    - "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0)"
+
+- id: dir_scan
+  ground_truth_label: dir_scan_go
+  sensitivity: moderate
+  filter:
+    - "Go-http-client"
+
+- id: dir_scan
+  ground_truth_label: dir_scan_python
+  sensitivity: moderate
+  filter:
+    - "code: 302"
+    - "python"
+
+- id: dir_scan
+  ground_truth_label: dir_scan
+  sensitivity: strict
+  filter:
+    - "%Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    - "%POST%"
+    - "%400%"
+
+- id: dir_scan
+  ground_truth_label: dir_scan
+  sensitivity: strict
+  filter:
+    - "%Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    - "%GET%"
+    - "%302%"
+
+- id: path_traversal
+  ground_truth_label: path_traversal
+  sensitivity: moderate
+  filter:
+    - "readme.txt"
+    - "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+
+- id: rce_shell
+  ground_truth_label: rce_shell
+  sensitivity: moderate
+  filter:
+    - "POST"
+    - python
+
+- id: rce_shell
+  ground_truth_label: rce_shell
+  sensitivity: moderate
+  filter:
+    - "HEAD"
+    - python
+
+- id: rce_shell
+  ground_truth_label: rce_shell
+  sensitivity: moderate
+  filter:
+    - "POST"
+    - python
+
+- id: rce_shell
+  ground_truth_label: rce_shell
+  sensitivity: moderate
+  filter:
+    - "md5("
+
+- id: rce_shell
+  ground_truth_label: rce_read_file
+  sensitivity: moderate
+  filter:
+    - "etc/passwd"
+
+- id: rce_shell
+  ground_truth_label: rce_sysinfo
+  sensitivity: moderate
+  filter:
+    - "ipconfig"
+
+- id: rce_shell
+  ground_truth_label: rce_java
+  sensitivity: moderate
+  filter:
+    - "java"
+    - "Runtime"
+
+- id: api_call
+  ground_truth_label: api_call
+  sensitivity: moderate
+  filter:
+    - "POST"
+    - "mgmt/tm/util/bash"
+
+- id: cross_site_scripting
+  ground_truth_label: cross_site_scripting
+  sensitivity: moderate
+  filter:
+    - "alert"
+    - "document"
+
+- id: file_inclusion
+  ground_truth_label: file_inclusion
+  sensitivity: moderate
+  filter:
+    - "=http://"
+
+- id: file_inclusion
+  ground_truth_label: file_inclusion
+  sensitivity: moderate
+  filter:
+    - "=https://"
+
+- id: shell_execution
+  ground_truth_label: shell_execution
+  sensitivity: moderate
+  filter:
+    - "cgi-bin"
+    - ".sh"
+
+- id: shell_execution
+  ground_truth_label: shell_execution
+  sensitivity: moderate
+  filter:
+    - "cgi-bin"
+    - "MSIE"
+
+- id: remote_code
+  ground_truth_label: remote_code
+  sensitivity: moderate
+  filter:
+    - "command="
+
+- id: remote_code
+  ground_truth_label: remote_code
+  sensitivity: moderate
+  filter:
+    - "cmd="
+
+- id: remote_code
+  ground_truth_label: remote_code
+  sensitivity: moderate
+  filter:
+    - "command="
+
+- id: remote_code
+  ground_truth_label: remote_code
+  sensitivity: moderate
+  filter:
+    - "<?="
+
+- id: remote_code
+  ground_truth_label: remote_code
+  sensitivity: moderate
+  filter:
+    - "base64"
+
+- id: remote_code
+  ground_truth_label: remote_code
+  sensitivity: moderate
+  filter:
+    - "<?php"
+
+- id: bruteforce_login_server_attempt
+  ground_truth_label: bruteforce_login_server_attempt
+  sensitivity: moderate
+  filter:
+    - "authentication failure"
+
+- id: bruteforce_login_server_attempt
+  ground_truth_label: bruteforce_login_server_attempt
+  sensitivity: moderate
+  filter:
+    - "Failed password for root"
+
+- id: bruteforce_login_web_attempt
+  ground_truth_label: bruteforce_login_web_attempt
+  sensitivity: moderate
+  filter:
+    - "/login/"
+    - "post"
+    - "404"
+
+- id: sql_injection_attempt
+  ground_truth_label: sql_injection_attempt
+  sensitivity: moderate
+  filter:
+    - "SELECT%"
+
+- id: sql_injection_attempt
+  ground_truth_label: sql_injection_attempt
+  sensitivity: moderate
+  filter:
+    - "select+"
+
+- id: sql_injection_attempt
+  ground_truth_label: sql_injection_attempt
+  sensitivity: moderate
+  filter:
+    - "UNION%"
+
+- id: sql_injection_attempt
+  ground_truth_label: sql_injection_attempt
+  sensitivity: moderate
+  filter:
+    - "UNION+"
+
+- id: sql_injection_attempt
+  ground_truth_label: sql_injection_attempt
+  sensitivity: moderate
+  filter:
+    - "SLEEP%"
+
+- id: sql_injection_attempt
+  ground_truth_label: sql_injection_attempt
+  sensitivity: moderate
+  filter:
+    - "SLEEP+"
+
+- id: sql_injection_attempt
+  ground_truth_label: sql_injection_attempt
+  sensitivity: moderate
+  filter:
+    - "SLEEP("
+
+- id: sql_injection_attempt
+  ground_truth_label: sql_injection_attempt
+  sensitivity: moderate
+  filter:
+    - "concat%"
+
+- id: sql_injection_attempt
+  ground_truth_label: sql_injection_attempt
+  sensitivity: moderate
+  filter:
+    - "concat+"
+
+- id: sql_injection_attempt
+  ground_truth_label: sql_injection_attempt
+  sensitivity: moderate
+  filter:
+    - "concat("
+
+- id: unkown_sync
+  ground_truth_label: unkown_sync
+  sensitivity: moderate
+  filter:
+    - "rsyncd"
+    - "rsync to"
+    - "UNKNOWN"

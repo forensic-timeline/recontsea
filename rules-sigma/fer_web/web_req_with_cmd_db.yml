@@ -1,0 +1,27 @@
+title: Database Commands in HTTP Request
+id: 6f2c8011-1fb6-4b92-8a94-69725d36f0ec
+status: test
+description: Detects decoded payloads in HTTP requests containing database command keywords commonly associated with webshell activity or post-exploitation.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"mysql'
+    - '"psql'
+    - '"pgsql'
+    - '"mongo'
+    - '"redis-cli'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: critical

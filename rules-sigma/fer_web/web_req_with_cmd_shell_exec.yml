@@ -1,0 +1,25 @@
+title: Shell Script Execution Commands in HTTP Request
+id: 0b6a6e9b-3a87-4f51-9d79-8fe5a9b74d7a
+status: test
+description: Detects decoded payloads in HTTP requests containing shell script execution patterns, commonly associated with privilege escalation or post-exploitation webshell behavior.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - privilege-escalation
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '.sh '
+    - '.sh"'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: critical

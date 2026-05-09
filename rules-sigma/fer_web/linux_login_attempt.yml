@@ -1,0 +1,26 @@
+title: SSH Failed Login Attempt
+id: d1a42f0d-4e5d-4a35-9a51-2c2b0bfc3d48
+status: test
+description: Detects failed SSH authentication attempts based on common failure messages such as "Failed password" or "Invalid user".
+author: Converted based on sample event
+tags:
+  - recon
+  - ssh
+  - authentication-failure
+  - keyword-detection
+
+logsource:
+  product: linux
+  category: sshd
+
+detection:
+  keywords:
+    - 'Failed password'
+    - 'Invalid user'
+    - 'authentication failure'
+  condition: keywords
+
+falsepositives:
+  - Wrong password by legitimate user
+  - Admin account testing
+level: medium

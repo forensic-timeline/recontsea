@@ -1,0 +1,23 @@
+title: Login Cyberpanel Attempts
+id: 3e7df0a1-58d8-4d15-bd21-6a9a9b98dffe
+status: test
+description: Detects POST requests targeting common login endpoints such as login.php and wp-login.php.
+author: Converted based on sample event
+tags:
+  - recon
+  - bruteforce
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  selection:
+      c-uri|contains:
+        - 'verifyLogin'
+        - 'websiteFunctions'
+  condition: selection
+
+falsepositives:
+  - Legitimate user authentication
+  - Routine CMS administration activity
+level: high

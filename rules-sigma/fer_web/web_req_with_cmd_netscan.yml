@@ -1,0 +1,25 @@
+title: Network Scanning Commands in HTTP Request
+id: 0e98a2f4-3a53-4c79-8d60-0f84e9ddf4ec
+status: test
+description: Detects decoded payloads in HTTP requests containing network scanning command keywords such as nmap or masscan, typically used during webshell post-exploitation reconnaissance.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - recon
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"nmap'
+    - '"masscan'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: high

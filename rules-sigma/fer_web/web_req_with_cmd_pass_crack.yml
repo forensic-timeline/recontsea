@@ -1,0 +1,27 @@
+title: Password Cracking Commands in HTTP Request
+id: 3cc6c91d-bc42-4b76-9d5e-8bd51eeacb42
+status: test
+description: Detects decoded payloads in HTTP requests containing password cracking tool keywords such as hydra, medusa, john, or hashcat, often associated with post-exploitation webshell activity.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - privilege-escalation
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"hydra'
+    - '"medusa'
+    - '"john'
+    - '"hashcat'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: critical

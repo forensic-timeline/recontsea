@@ -1,0 +1,31 @@
+title: Sniffing or Firewall Commands in HTTP Request
+id: 6d4c3b3c-9b72-4de6-bc5e-4b7c5d2e29a0
+status: test
+description: Detects decoded payloads in HTTP requests containing sniffing or firewall-related command keywords, commonly used during advanced webshell post-exploitation activity.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - recon
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"tcpdump'
+    - '"wireshark'
+    - '"tshark'
+    - '"ettercap'
+    - '"dsniff'
+    - '"iptables'
+    - '"ufw'
+    - '"firewalld'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: high

@@ -1,0 +1,30 @@
+title: Interpreter or Compiler Execution Commands in HTTP Request
+id: 9a4e0f62-1fb2-4b39-9df7-4d6e4dbf9d7c
+status: test
+description: Detects decoded payloads in HTTP requests containing interpreter or compiler command keywords often associated with code execution or privilege escalation through webshells.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - privilege-escalation
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"perl'
+    - '"python'
+    - '"python3'
+    - '"php'
+    - '"ruby'
+    - '"lua'
+    - '"gcc'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: high

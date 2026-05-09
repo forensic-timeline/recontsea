@@ -1,0 +1,25 @@
+title: Web Requests 404 Response Dirb Scan Detection
+id: d71d9541-41d7-4b26-b59e-0b2a3b8d39cd
+status: test
+description: Detects single HTTP 404 response events which may indicate directory brute-forcing or reconnaissance activity.
+author: Converted based on sample event
+tags:
+  - recon
+  - dirb
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  selection:
+      cs-method: 'GET'
+      sc-status:
+        - 404
+      cs-user-agent|contains:
+        - 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)'
+  condition: selection
+
+falsepositives:
+  - Normal browsing errors
+  - Broken links
+level: medium

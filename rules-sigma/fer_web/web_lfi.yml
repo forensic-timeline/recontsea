@@ -1,0 +1,24 @@
+title: Local File Inclusion
+id: e2b53f2d-4c17-4b68-9b04-6a52f70a2c9a
+status: test
+description: Detects attempts to access sensitive Linux system files such as /etc/passwd, /etc/shadow, or /etc/group through HTTP requests.
+author: Converted based on sample event
+tags:
+  - exploit
+  - recon
+  - lfi
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '/etc/passwd'
+    - '/etc/shadow'
+    - '/etc/group'
+  condition: keywords
+
+falsepositives:
+  - Security testing
+  - Automated vulnerability scanning
+level: high

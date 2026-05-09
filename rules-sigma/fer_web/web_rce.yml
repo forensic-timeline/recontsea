@@ -1,0 +1,29 @@
+title: Remote Code Execution
+id: 9c4e8bd9-5aa1-42f5-b9f9-2fb3adfa6898
+status: test
+description: Detects use of suspicious RCE such as md5() in HTTP request parameters which may indicate exploitation attempts.
+author: Converted based on sample event
+tags:
+  - exploit
+  - injection
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - 'md5('
+    - 'sha1('
+    - 'sleep('
+    - 'benchmark('
+    - 'updatexml('
+    - 'extractvalue('
+    - 'base64'
+    - 'cmd='
+    - 'command='
+  condition: keywords
+
+falsepositives:
+  - Internal testing
+  - Debug or development API functions
+level: medium

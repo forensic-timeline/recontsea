@@ -1,0 +1,28 @@
+title: Time-Temporal Information Commands in HTTP Request
+id: b549b61e-5b56-4bea-8ffd-79b1a602f8c5
+status: test
+description: Detects decoded payloads in HTTP requests containing time or temporal information command keywords often associated with webshell execution or exploitation attempts.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"date'
+    - '"uptime'
+    - '"timedatectl'
+    - '"who'
+    - '"last'
+    - '"lastlog'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: high

@@ -1,0 +1,26 @@
+title: Remote Shell Commands in HTTP Request
+id: f2c9f53c-8d2e-4c4e-9f5a-4f08bbd27c41
+status: test
+description: Detects decoded payloads in HTTP requests containing remote shell tool keywords such as nc, socat, or ssh, commonly used in webshell post-exploitation activity.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - privilege-escalation
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"nc'
+    - '"socat'
+    - '"ssh'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: critical

@@ -1,0 +1,25 @@
+title: Web Scan Tools
+id: d71d9541-41d7-4b26-b59e-0b2a3b8d39cd
+status: test
+description: Detects web events which may indicate directory brute-forcing or reconnaissance activity.
+author: Converted based on sample event
+tags:
+  - recon
+  - dirb
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  selection:
+    cs-user-agent|contains:
+      # Add more tools as you see fit
+      - 'wpscan'
+      - 'nikto'
+      - 'sqlmap'
+  condition: selection
+
+falsepositives:
+  - Normal browsing errors
+  - Broken links
+level: high

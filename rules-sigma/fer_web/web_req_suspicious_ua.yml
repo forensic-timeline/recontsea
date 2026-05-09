@@ -1,0 +1,30 @@
+title: HTTP Request with Suspicious User Agent
+id: 3e7df0a1-58d8-4d15-bd21-6a9a9b98dffe
+status: test
+description: Detects HTTP requests with suspicious user agent.
+author: Converted based on sample event
+tags:
+  - recon
+  - bruteforce
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  selection:
+      cs-user-agent|contains:
+        - 'python'
+        - 'perl'
+        - 'postman'
+        - 'curl'
+        - 'go-http-client'
+        - 'java'
+        - 'shell'
+        - 'httpclient'
+        - 'hydra'
+  condition: selection
+
+falsepositives:
+  - Legitimate user authentication
+  - Routine CMS administration activity
+level: medium

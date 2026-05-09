@@ -1,0 +1,26 @@
+title: Password Change Activity
+id: 2fd8a2cc-b6e0-4f4a-9963-0b1e6d2c29f1
+status: test
+description: Detects successful password change events in Linux system logs based on messages indicating updated or reset passwords.
+author: Converted based on sample event
+tags:
+  - passwd
+  - authentication
+  - privilege-escalation
+  - keyword-detection
+
+logsource:
+  category: sshd
+  product: linux
+
+detection:
+  keywords:
+    - 'password changed'
+    - 'password updated'
+    - 'password reset'
+  condition: keywords
+
+falsepositives:
+  - Normal password rotation
+  - IT support performing legitimate resets
+level: high

@@ -1,0 +1,24 @@
+title: Remote File Inclusion - Tag Injection
+id: 4fd1f2c8-6d15-4c77-9c7e-bc57b1a6cd62
+status: test
+description: Detects presence of embedded PHP tags in HTTP request parameters which may indicate RFI or PHP injection attempts.
+author: Converted based on sample event
+tags:
+  - exploit
+  - injection
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '<?'
+    - '?>'
+    - '%3C%3F'
+    - '%3F%3E'
+  condition: keywords
+
+falsepositives:
+  - Internal security testing
+  - Content scanning tools
+level: high

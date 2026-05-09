@@ -1,0 +1,26 @@
+title: Utility Commands in HTTP Request
+id: 1af4b6ec-0b44-4b8e-bf7f-7a5f3c8b1c16
+status: test
+description: Detects decoded payloads in HTTP requests containing utility tool keywords such as git, svn, or hg, which may indicate webshell post-exploitation behavior.
+author: Converted based on sample event
+tags:
+  - exploit
+  - webshell
+  - http
+  - decoded
+  - keyword-detection
+logsource:
+  category: webserver
+
+detection:
+  keywords:
+    - '"clear'
+    - '"history'
+    - '"watch'
+    - '"reset'
+  condition: keywords
+
+falsepositives:
+  - Forensic replay logs
+  - Controlled pentesting environment
+level: high

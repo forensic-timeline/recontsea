@@ -1,0 +1,26 @@
+title: User Login Activity in Server
+id: 4f2b8e63-9eed-4e1e-9b12-2f6f5ad4ca21
+status: test
+description: Detects user login activity in server, which may indicate interactive access or privilege escalation activity.
+author: Converted based on sample event
+tags:
+  - systemd
+  - privilege-escalation
+  - session
+  - keyword-detection
+
+logsource:
+  category: sshd
+  product: linux
+
+detection:
+  keywords:
+    - 'Accepted password'
+    - 'Accepted publickey'
+    - 'New session'
+  condition: keywords
+
+falsepositives:
+  - Expected user logins
+  - Legitimate session creation during maintenance
+level: medium

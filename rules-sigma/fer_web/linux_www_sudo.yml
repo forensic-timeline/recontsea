@@ -1,0 +1,26 @@
+title: Sudo Command Executed in Web Directory
+id: 67e1c3c9-8f4b-4af7-9c4d-6fd3fdc5f7b3
+status: test
+description: Detects sudo command execution originating from /var/www, which may indicate privilege escalation from a compromised web process.
+author: Converted based on sample event
+tags:
+  - sudo
+  - privilege-escalation
+  - webshell
+  - keyword-detection
+
+logsource:
+  category: sshd
+  product: linux
+
+detection:
+  keywords:
+    '|all':
+      - 'sudo'
+      - 'var/www'
+  condition: keywords
+
+falsepositives:
+  - Legitimate maintenance or deployment script activity
+  - Admin debugging or upgrade operations
+level: high
