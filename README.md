@@ -81,4 +81,4 @@ The tool generates several files to aid in analysis:
 3. High Level Ground Truth
 4. High Level Evaluation
 
-all output will be stored in /result/<dataset_name>
+all output will be stored in /results/<dataset_name>
