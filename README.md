@@ -1,6 +1,6 @@
 # recontsea
 
-Temporal-Semantic Event Aggregation (TSEA), a forensic event reconstruction tool that transforms low-level web server log events into concise high-level attack narratives using temporal adjacency and semantic similarity. TSEA integrates log decoding, Sigma rule-based anomaly detection, and temporal-semantic aggregation to reconstruct multi-step web attack sequences.
+Temporal-Semantic Event Aggregation (TSEA) is a forensic event reconstruction tool that transforms low-level web server log events into concise high-level attack narratives using temporal adjacency and semantic similarity. TSEA integrates log decoding, Sigma rule-based anomaly detection, and temporal-semantic aggregation to reconstruct multi-step web attack sequences.
 
 ## Features:
 
