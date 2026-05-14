@@ -1,5 +1,3 @@
-# recontsea
-
 ## Prerequisites
 
 - Python 3.13 or higher
