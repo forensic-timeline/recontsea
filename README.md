@@ -8,7 +8,7 @@
 
 ## Python Virtual Environment Setup
 
-TSEA uses several Python packages to function properly. It is recommended to install the package in a virtual environment to avoid dependency conflicts. Here is a simple example of how to create and activate a virtual environment:
+Here is a simple example of how to create and activate a virtual environment:
 
   1. Anaconda or Miniconda
 
