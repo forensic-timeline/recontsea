@@ -30,10 +30,6 @@ Or using venv:
 
   1. **Clone the Repository**
 
-      ```bash
-      git clone https://github.com/forensic-timeline/recontsea
-      ```
-
   2. **Install Depedencies**
 
       ```bash
