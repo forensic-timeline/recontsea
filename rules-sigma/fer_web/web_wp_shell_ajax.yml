@@ -2,7 +2,7 @@ title: Direct Invocation of AJAX Endpoint (Shell)
 id: 3e7df0a1-58d8-4d15-ac322-6a9a9b98dffe
 status: test
 description: Detects direct access to AJAX endpoint (services/ajax.php) which is normally triggered only via client-side JavaScript. Direct  invocation indicates scripted or webshell-driven interaction.
-author: Yasir Utomo
+author: Anonim
 tags:
   - attack.webshell
   - attack.initial_access
