@@ -37,16 +37,10 @@ Or using venv:
 
 ## How to Run
 
-To ensure that the installation is correct and the code is functioning as expected, you can run by:
+Run by:
 
 ```bash
-python main.py 
-```
-
-example:
-
-```bash
-python main.py 1sample
+python main.py <dataset-file-name>
 ```
 
 ensure you have the dataset in /dataset and already make directory in /results/<dataset_name>
