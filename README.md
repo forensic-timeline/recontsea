@@ -11,8 +11,8 @@ Here is a simple example of how to create and activate a virtual environment:
   1. Anaconda or Miniconda
 
       ```bash
-      conda create --name recontsea python=3.13
-      conda activate recontsea
+      conda create --name <env-name> python=3.13
+      conda activate <env-name>
       ```
 
 Or using venv:
@@ -31,7 +31,7 @@ Or using venv:
   2. **Install Depedencies**
 
       ```bash
-      cd recontsea
+      cd <dir-name>
       pip install -r requirements.txt
       ```
 
